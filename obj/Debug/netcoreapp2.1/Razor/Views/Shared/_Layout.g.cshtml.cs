@@ -46,7 +46,7 @@ namespace AspNetCore
             WriteLiteral("<!DOCTYPE html>\n<html>\n    ");
             EndContext();
             BeginContext(27, 480, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e938cb5b72d24f89a9df5ce2c4b55bdb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9b214d45616b4c10b0638161740a65fb", async() => {
                 BeginContext(33, 467, true);
                 WriteLiteral(@"
         <title>My Flinks Challenge</title>
@@ -78,7 +78,7 @@ namespace AspNetCore
             WriteLiteral("\n    ");
             EndContext();
             BeginContext(512, 1082, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dd343f7ece174293ae0bbe7b501e9a6a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "da55d169344042e0b35b9fd789162029", async() => {
                 BeginContext(518, 219, true);
                 WriteLiteral("\n        <div class=\"row bg-dark text-white justify-content-center align-items-center\">\r\n            <h2>Challenge</h2>\n         </div>\r\n         <div class=\"container text-center\" style=\"height:86vh\">\r\n                ");
                 EndContext();
@@ -93,7 +93,7 @@ namespace AspNetCore
                 WriteLiteral("\r\n                <footer>\r\n                    <p>My Flinks Challenge</p>\r\n                </footer>\r\n            </div>\r\n            ");
                 EndContext();
                 BeginContext(885, 74, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0558667d80034993afdd7fa3c9f2e462", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b436f6e126774097916e81962a726508", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

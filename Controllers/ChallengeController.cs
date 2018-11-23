@@ -39,18 +39,18 @@ namespace projectChallenge.Controllers
         {
             contextChallenge = _contextChallenge;
         }
-        
         [HttpPost]
-        public string Log()
+        public ActionResult Log()
         {
             User user = new User
             {
                 Username = Request.Form["username"],
                 Password = Request.Form["password"]
             };
+            @ViewData["User"] = user;
             //contextChallenge.Users.Add(user);
             //contextChallenge.SaveChanges();
-            return "tesete"+ user.Username;
+            return View();
         }
         [Route("Index")]
         public IActionResult Index(System.Web.Mvc.FormCollection form)
@@ -62,7 +62,7 @@ namespace projectChallenge.Controllers
             };
             // contextChallenge.Users.Add(new User { Username = "123", Password = "123", ActiveState = 1 });
             //contextChallenge.SaveChanges();
-            Token token = new Token { ValideDate = DateTime.Now, UserId=1 };
+          /*   Token token = new Token { ValideDate = DateTime.Now, UserId=1 };
             token.TokenCreate = token.CreateToken();
             List<Token> tokens = new List<Token>();
             
@@ -76,10 +76,10 @@ namespace projectChallenge.Controllers
                 contextChallenge.Tokens.Add(el);
             }
             //contextChallenge.Tokens.Add(tokens);
-            contextChallenge.SaveChanges();
+            contextChallenge.SaveChanges();*/
             return View();
         }
-        [Route("Singup")]
+       
         public IActionResult Singup(){
             return View();
         }
