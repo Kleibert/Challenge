@@ -1,18 +1,28 @@
 ﻿<Properties StartupConfiguration="{D23F1B08-2164-443D-A614-A1FC1B0F4DD4}|Default">
   <MonoDevelop.Ide.ItemProperties.projectChallenge PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Scripts/ValidationForm.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="projectChallenge Status">
     <Files>
-      <File FileName="Controllers/ChallengeController.cs" Line="49" Column="40" />
-      <File FileName="Views/Challenge/Index.cshtml" Line="9" Column="23" />
+      <File FileName="Controllers/ChallengeController.cs" Line="140" Column="6" />
+      <File FileName="Views/Challenge/Index.cshtml" Line="34" Column="87" />
+      <File FileName="Authentication/CustomAuthHandler.cs" Line="60" Column="17" />
+      <File FileName="Models/Agent.cs" Line="7" Column="32" />
+      <File FileName="Models/ContextChallenge.cs" Line="15" Column="48" />
+      <File FileName="Startup.cs" Line="70" Column="33" />
       <File FileName="Program.cs" Line="17" Column="1" />
-      <File FileName="Views/Shared/_Layout.cshtml" Line="12" Column="27" />
-      <File FileName="Views/Challenge/Singup.cshtml" Line="11" Column="47" />
-      <File FileName="Models/User.cs" Line="14" Column="29" />
-      <File FileName="Startup.cs" Line="75" Column="16" />
-      <File FileName="Scripts/ValidationForm.js" Line="86" Column="14" />
+      <File FileName="Views/Challenge/Log.cshtml" Line="18" Column="28" />
+      <File FileName="projectChallenge Status" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>Model.Username</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="../../../Views/Challenge/Index.cshtml" line="31" offsetX="569" offsetY="450" expression="Model.Username" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>

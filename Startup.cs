@@ -31,7 +31,7 @@ namespace projectChallenge
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
             //Start my connection string with Azure
             var stringCon = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ContextChallenge>(option => option.UseSqlServer(stringCon));

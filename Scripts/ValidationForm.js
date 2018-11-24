@@ -83,7 +83,7 @@ function randomString() {
 
 function timeSpan(time1,time2){
     var time = (time2-time1)/1000;
-    if(time<3)
+    if(time<1)
         return false;
        else return true;
 }

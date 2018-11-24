@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using projectChallenge.Models;
 using Microsoft.Extensions.DependencyInjection;
 using projectChallenge.Authentication;
-
+using System.Web;
+using Microsoft.Net.Http.Headers;
+using System.Collections;
 
 namespace projectChallenge.Controllers
 {
@@ -47,37 +49,54 @@ namespace projectChallenge.Controllers
                 Username = Request.Form["username"],
                 Password = Request.Form["password"]
             };
-            @ViewData["User"] = user;
-            //contextChallenge.Users.Add(user);
-            //contextChallenge.SaveChanges();
-            return View();
-        }
-        [Route("Index")]
-        public IActionResult Index(System.Web.Mvc.FormCollection form)
-        {
-            User user = new User
+          
+            User userDataBase = contextChallenge.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+            if (userDataBase!=null)
             {
-                Username = form["username"],
-                Password = form["password"]
-            };
-            // contextChallenge.Users.Add(new User { Username = "123", Password = "123", ActiveState = 1 });
-            //contextChallenge.SaveChanges();
-          /*   Token token = new Token { ValideDate = DateTime.Now, UserId=1 };
-            token.TokenCreate = token.CreateToken();
-            List<Token> tokens = new List<Token>();
-            
-            tokens.Add(token);
+                var token = contextChallenge.Tokens.Where(t => t.UserId == userDataBase.Userid);
+                foreach (Token to in token)
+                {
+                    contextChallenge.Tokens.Remove(to);
+                }
+                contextChallenge.SaveChanges();
 
-            contextChallenge.Users.Add(user);
-            Token token2 = new Token { ValideDate = DateTime.Now, UserId = 1 };
-            token2.TokenCreate = token.CreateToken();
-            tokens.Add(token2);
-            foreach (Token el in tokens){
-                contextChallenge.Tokens.Add(el);
+                List<Token> tokens = new List<Token>();
+
+                for (int i = 0; i < 50; i++)
+                {
+                    Token nToken = new Token
+                    {
+                        ValideDate = DateTime.Now,
+                        UserId = userDataBase.Userid
+                    };
+                    nToken.TokenCreate = nToken.CreateToken();
+                    tokens.Add(nToken);
+                }
+
+                foreach (Token el in tokens)
+                {
+                    contextChallenge.Tokens.Add(el);
+                   
+                }
+                contextChallenge.SaveChanges();
+                @ViewData["Tokens"] =tokens;
+                return View(user);
             }
-            //contextChallenge.Tokens.Add(tokens);
-            contextChallenge.SaveChanges();*/
-            return View();
+            else{
+
+                return View("Index",user);
+            }
+
+        }
+     
+        public IActionResult Index(User response)
+        {
+           
+           Request.Headers.TryGetValue(HeaderNames.UserAgent, out var header);
+            ViewData["Agent"] = header;
+            ViewData["Response"] = response;
+
+            return View(response);
         }
        
         public IActionResult Singup(){

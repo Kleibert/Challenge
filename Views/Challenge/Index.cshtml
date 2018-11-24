@@ -1,13 +1,16 @@
-﻿@*
+﻿@model projectChallenge.Models.User
+@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+
 }
+
 <div class="row h-100 justify-content-center align-items-center">
     <div class="col-6  border border-secondary">
-        <form action="Challenge/Log" method="POST" runat="server" onsubmit="return validate();">
+        <form action="Log" method="POST" runat="server" onsubmit="return validate();">
             <fieldset>
-
+                @ViewData["Agent"]
                 <div>
                     <label for="PessoaId">Username</label>
                 </div>
@@ -23,8 +26,17 @@
                 </div>
                 <div id="passResult"></div>
                 <br />
-                <p><input type="submit" class="btn btn-info"  value="Sing in" /></p>
+                <p><input type="submit" class="btn btn-info" value="Sing in" /></p>
+
+
+
+
+                @(Model.Username == null ? "" : Model.Username + " User name don't exsite our")
+                <br />
+                @(Model.Password == null ? "" : Model.Password + " Password don't existe for this user")
+
             </fieldset>
         </form>
     </div>
+
 </div>

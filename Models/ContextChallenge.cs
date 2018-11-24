@@ -12,5 +12,6 @@ namespace projectChallenge.Models
 
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<Agent> Agents { get; set; }
     }
 }

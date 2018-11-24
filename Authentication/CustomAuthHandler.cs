@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
 using System;
 using projectChallenge.Models;
+using System.Collections;
 
 namespace projectChallenge.Authentication
 {
@@ -24,8 +25,35 @@ namespace projectChallenge.Authentication
         }
         protected override Task<AuthenticateResult> HandleAuthenticateAsync()
         {
-          //  CustomAuthOptions.AuthKey =  "134564sad454sdfasd3" ;
-           string userId = string.Empty;
+            Request.Headers.TryGetValue(HeaderNames.UserAgent, out var header);
+            Agent agent = new Agent
+            {
+                AgentUser = header,
+                ValideDate = DateTime.Now
+            };
+            contextChallenge.Agents.Add(agent);
+            contextChallenge.SaveChanges();
+            // verify  if it's a DDos Ataque
+            var agentDate = (from ag in contextChallenge.Agents
+                            where (ag.ValideDate <= DateTime.Now) &&
+                             (ag.ValideDate >= (DateTime.Now.Subtract(TimeSpan.FromMilliseconds(1000))))
+                             select ag).ToList();
+            Console.WriteLine("DATA");
+           
+
+            foreach (var i in agentDate){
+                Console.Write(i.AgentUser + i.ValideDate);
+              
+            }
+            Console.WriteLine("FIM DATA");
+            Console.WriteLine( agentDate.Count());
+            if(agentDate.Count()>=3){
+                Console.WriteLine("Podemos estar recebendo um ataque DDOs");
+            }
+            // End verify  if it's a DDos Ataque
+            //  CustomAuthOptions.AuthKey =  "134564sad454sdfasd3" ;
+
+            string userId = string.Empty;
 
             if (Request.Headers.TryGetValue(HeaderNames.Authorization, out var headerValues))
             {
@@ -38,7 +66,7 @@ namespace projectChallenge.Authentication
             {
                 Console.WriteLine("custom key=======");
             Console.WriteLine(customkey);
-            var checkToken = contextChallenge.Tokens.Where(t => t.TokenCreate == userId).FirstOrDefault();
+                var checkToken = contextChallenge.Tokens.Where(t => t.TokenCreate == userId).FirstOrDefault();
             Console.WriteLine("custom key=======");
             Console.WriteLine( checkToken.GetType());
            
