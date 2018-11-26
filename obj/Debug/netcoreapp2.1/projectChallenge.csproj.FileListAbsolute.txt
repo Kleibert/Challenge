@@ -20,9 +20,10 @@
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/projectChallenge.RazorTargetAssemblyInfo.cs
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/projectChallenge.Views.pdb
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/projectChallenge.csproj.CopyComplete
-/Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Result.g.cshtml.cs
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Index.g.cshtml.cs
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_Layout.g.cshtml.cs
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/_ViewStart.g.cshtml.cs
-/Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Singup.g.cshtml.cs
 /Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Log.g.cshtml.cs
+/Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Singin.g.cshtml.cs
+/Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/Singup.g.cshtml.cs
+/Users/kleibert/Projects/projectChallenge/obj/Debug/netcoreapp2.1/Razor/Views/Challenge/CreateUser.g.cshtml.cs

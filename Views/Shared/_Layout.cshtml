@@ -11,12 +11,18 @@
             a:hover{
                 color:#fff
             }
+            .singin {
+                right: 5px;
+                position: absolute;
+                top: 3px;
+            }
         </style>
       </head>
     <body>
-        <div class="row bg-dark text-white justify-content-center align-items-center">
+        <div class="row bg-dark text-white justify-content-center align-items">
             <h2>Challenge</h2>
-         </div>
+            <p class="btn btn-info singin"> @Html.ActionLink("Sing In >", "Singin", "Challenge")</p>
+        </div>
          <div class="container text-center" style="height:86vh">
                 @RenderBody()
                 <footer>

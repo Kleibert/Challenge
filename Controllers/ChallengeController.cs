@@ -10,46 +10,37 @@ using projectChallenge.Authentication;
 using System.Web;
 using Microsoft.Net.Http.Headers;
 using System.Collections;
+using System.Net.Http;
+using System.Net;
+using System.Net.Http.Headers;
 
 namespace projectChallenge.Controllers
 {
     public class ChallengeController:Controller
     {
         private readonly ContextChallenge contextChallenge;
-       /* public void ConfigureServices(IServiceCollection services, string token)
-        {
-            // Add authentication 
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = CustomAuthOptions.DefaultScheme;
-                options.DefaultChallengeScheme = CustomAuthOptions.DefaultScheme;
-            })
-
-             // Multiple auth keys
-             .AddCustomAuth(options =>
-             {
-                 //var key = "oi";
-                 options.AuthKey = token;
-
-
-             });
-          
-        }*/
-
 
         public ChallengeController(ContextChallenge _contextChallenge)
         {
             contextChallenge = _contextChallenge;
         }
-        [HttpPost]
-        public ActionResult Log()
+
+        public IActionResult Index()
         {
-            User user = new User
-            {
-                Username = Request.Form["username"],
-                Password = Request.Form["password"]
-            };
+
+            return View();
+        }
+
+        //create method to valide username, password and creating a tokens 
+        [HttpPost]
+        public ActionResult Log(User userRegistration)
+        {
+            User user = new User();
           
+            if (userRegistration != null) {
+                user.Username = userRegistration.Username;
+                user.Password = userRegistration.Password;
+            }
             User userDataBase = contextChallenge.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
             if (userDataBase!=null)
             {
@@ -72,44 +63,69 @@ namespace projectChallenge.Controllers
                     nToken.TokenCreate = nToken.CreateToken();
                     tokens.Add(nToken);
                 }
-
+                string autoTokens="";
                 foreach (Token el in tokens)
                 {
                     contextChallenge.Tokens.Add(el);
-                   
+                    autoTokens += el.TokenCreate;
                 }
                 contextChallenge.SaveChanges();
                 @ViewData["Tokens"] =tokens;
+
+               //WebClient client = new WebClient();
+                //client.Headers["Authorization"] = "Basic " + tokens;
+
+                Response.Headers.Add("Authorization", string.Format(autoTokens)+";");
                 return View(user);
             }
             else{
 
-                return View("Index",user);
+                return View("Singin", user);
             }
 
         }
      
-        public IActionResult Index(User response)
+        /// Controller to Sing in the page
+        public IActionResult Singin (User response)
         {
-           
-           Request.Headers.TryGetValue(HeaderNames.UserAgent, out var header);
-            ViewData["Agent"] = header;
-            ViewData["Response"] = response;
-
             return View(response);
         }
-       
-        public IActionResult Singup(){
-            return View();
+        //Create de view to put the infor for a new user
+        public IActionResult Singup(User response){
+            return View(response);
         }
-        [HttpPost("/api/GerarToken")]
+
+       // Registration for new user 
+        [HttpPost]
+        public IActionResult CreateUser(){
+            User user = new User
+            {
+                Username = Request.Form["username"],
+                Password = Request.Form["password"],
+                ActiveState = true
+            };
+            User userDataBase = contextChallenge.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+            if (userDataBase == null)
+            {
+                contextChallenge.Users.Add(user);
+                contextChallenge.SaveChanges();
+               
+                return RedirectToActionPreserveMethod("Log", "Challenge",(user.Username,user.Password));
+
+            }
+                return View("Singup",user);
+        }
+
+        //Return all Tokens from une user
+        [HttpPost("/api/ReturnTokens")]
         public JsonResult GerarToken([FromBody] Parameter parameter)
         {
             var userDataBase = contextChallenge.Users.Where(u => u.Username == parameter.username && u.Password == parameter.password).FirstOrDefault();
             var tokens = contextChallenge.Tokens.Where(user => user.UserId == userDataBase.Userid);
-            List<string>listToken=new List<string>();
-            foreach(Token element in tokens){
-                listToken.Add(element.TokenCreate);
+            // List<string>listToken=new List<string>();
+            string listToken = "";
+            foreach (Token element in tokens){
+                listToken+=element.TokenCreate +",";
             }
             if (userDataBase != null)
             {
@@ -125,24 +141,14 @@ namespace projectChallenge.Controllers
                 return Json(new { token = string.Empty });
             }
         }
-        [Route("Result")]
-        public IActionResult Result(){
-            @ViewData["name"] = "Kleibert";
-            @ViewData["password"] = "1234";
-            return View();
-        }
-        [Route("js")]
-        public JsonResult js(){
-            var x = HttpContext.Request.Cookies;
-            return Json(x);
-        }
-        // GET api/values
+    
+        // GET api/valide this controler is created to verify tokens exitem
         [Authorize]
         [Route("api/Valide")]
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new[] { "value1", "value2" };
+            return new[] { "Hello", "Congrats tokens valide", " challengeID :1270637707" };
         }
     }
 }

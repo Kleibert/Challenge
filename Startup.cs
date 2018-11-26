@@ -71,7 +71,7 @@ namespace projectChallenge
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Challenge}/{action=Singup}/{id?}");
+                    template: "{controller=Challenge}/{action=Index}/{id?}");
             });
         }
     }

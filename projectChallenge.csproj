@@ -30,5 +30,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Values\Index.cshtml" />
+    <Content Remove="Views\Challenge\Result.cshtml" />
   </ItemGroup>
 </Project>

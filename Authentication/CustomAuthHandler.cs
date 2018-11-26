@@ -51,51 +51,55 @@ namespace projectChallenge.Authentication
                 Console.WriteLine("Podemos estar recebendo um ataque DDOs");
             }
             // End verify  if it's a DDos Ataque
-            //  CustomAuthOptions.AuthKey =  "134564sad454sdfasd3" ;
-
-            string userId = string.Empty;
+         
+            //Start verify tokens are valides
+            string authorizationsTokens = string.Empty;
 
             if (Request.Headers.TryGetValue(HeaderNames.Authorization, out var headerValues))
             {
-                userId = headerValues;
+                authorizationsTokens = headerValues;
             }
             Console.WriteLine("header=======");
-            Console.WriteLine(userId);
-            var customkey = Options.AuthKey;
-            if (!string.IsNullOrEmpty(userId))
-            {
-                Console.WriteLine("custom key=======");
-            Console.WriteLine(customkey);
-                var checkToken = contextChallenge.Tokens.Where(t => t.TokenCreate == userId).FirstOrDefault();
-            Console.WriteLine("custom key=======");
-            Console.WriteLine( checkToken.GetType());
            
-                if (checkToken.TokenCreate == userId && checkToken != null)
+            Console.WriteLine(authorizationsTokens);
+            var customkey = Options.AuthKey;
+            if (!string.IsNullOrEmpty(authorizationsTokens))
+            {
+                bool verifyTokens = true;
+                String[] tokens = authorizationsTokens.Split(",");
+                foreach (string element in tokens)
                 {
-                    var identitiess = new List<ClaimsIdentity> { new ClaimsIdentity("custom auth for Challenge") };
-                    var tickets = new AuthenticationTicket(new ClaimsPrincipal(identitiess), Options.Scheme);
-                    return Task.FromResult(AuthenticateResult.Success(tickets));
+                    var checkToken = contextChallenge.Tokens.Where(t => t.TokenCreate == element).FirstOrDefault();
+
+                    if (checkToken != null)
+                    {
+
+                        var date1 = DateTime.Now;
+                        var date2 = checkToken.ValideDate;
+
+                        TimeSpan timer = date1 - date2;
+
+                        if (timer.Minutes > 30)
+                        {
+                            verifyTokens = false;
+
+                        }
+                       
+                    }
+
+                }
+                if (!verifyTokens)
+                {
+                  
+                    return Task.FromResult(AuthenticateResult.Fail("Tokens are expired"));
                 }
             }
-            // Get Authorization header value
-            if (!Request.Headers.TryGetValue(HeaderNames.Authorization, out var authorization))
-            {
-                return Task.FromResult(AuthenticateResult.Fail("Cannot read authorization header."));
-            }
-
-            // The auth key from Authorization header check against the configured ones
-            if (authorization.Any(key => Options.AuthKey.All(ak => ak != key)))
-            {
-
-                return Task.FromResult(AuthenticateResult.Fail("Invalid auth key."));
-            }
+            //End verify tokens are valides
 
             // Create authenticated user
-           var identities = new List<ClaimsIdentity> { new ClaimsIdentity("custom auth for Challenge") };
-            var ticket = new AuthenticationTicket(new ClaimsPrincipal(identities), Options.Scheme);
-            Console.WriteLine("KEY=>");
-            Console.WriteLine("KEY=>", Options.AuthKey);
-            return Task.FromResult(AuthenticateResult.Success(ticket));
+            var identitiess = new List<ClaimsIdentity> { new ClaimsIdentity("custom auth for Challenge"), new ClaimsIdentity("Challenge Id :1270637707") };
+            var tickets = new AuthenticationTicket(new ClaimsPrincipal(identitiess), Options.Scheme);
+            return Task.FromResult(AuthenticateResult.Success(tickets));
         }
     }
 }
