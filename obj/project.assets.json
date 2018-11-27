@@ -2942,6 +2942,30 @@
           }
         }
       },
+      "Selenium.Support/3.141.0": {
+        "type": "package",
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.141.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {}
+        }
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4421,6 +4445,9 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
+      },
+      "WebDriver.ChromeDriver.win32/2.44.0": {
+        "type": "package"
       }
     }
   },
@@ -7397,6 +7424,42 @@
         "runtimes/win-x86/native/sni.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Selenium.Support/3.141.0": {
+      "sha512": "ov2XBE48L1M2bTc8azz5rSpfT45+q6bw9sBc84NObGebFZ/S2SCnV/TSoBy2Zf3vPXij63Nd1VRcwQkyKC4Vyw==",
+      "type": "package",
+      "path": "selenium.support/3.141.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/WebDriver.Support.dll",
+        "lib/net35/WebDriver.Support.xml",
+        "lib/net40/WebDriver.Support.dll",
+        "lib/net40/WebDriver.Support.xml",
+        "lib/net45/WebDriver.Support.dll",
+        "lib/net45/WebDriver.Support.xml",
+        "lib/netstandard2.0/WebDriver.Support.dll",
+        "lib/netstandard2.0/WebDriver.Support.xml",
+        "selenium.support.3.141.0.nupkg.sha512",
+        "selenium.support.nuspec"
+      ]
+    },
+    "Selenium.WebDriver/3.141.0": {
+      "sha512": "ymXPJ9zp7KPIV0H6DdI3boIwc46LrEW1T653Ow6OsRbMFgyDcqRCX8JOeYLm68jIq+7rgECLLUXxmAit5TP/Iw==",
+      "type": "package",
+      "path": "selenium.webdriver/3.141.0",
+      "files": [
+        ".signature.p7s",
+        "lib/net35/WebDriver.dll",
+        "lib/net35/WebDriver.xml",
+        "lib/net40/WebDriver.dll",
+        "lib/net40/WebDriver.xml",
+        "lib/net45/WebDriver.dll",
+        "lib/net45/WebDriver.xml",
+        "lib/netstandard2.0/WebDriver.dll",
+        "lib/netstandard2.0/WebDriver.xml",
+        "selenium.webdriver.3.141.0.nupkg.sha512",
+        "selenium.webdriver.nuspec"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -11715,6 +11778,45 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
+    },
+    "WebDriver.ChromeDriver.win32/2.44.0": {
+      "sha512": "uJCHwaPkuALkl3kGWgO+YkrntFTPP6A+nDec1QGG4T9s/CeTHTemTSWI05LI9flEKS1WxobBVRnmAU6d1wPTiA==",
+      "type": "package",
+      "path": "webdriver.chromedriver.win32/2.44.0",
+      "files": [
+        ".git/HEAD",
+        ".git/ORIG_HEAD",
+        ".git/config",
+        ".git/description",
+        ".git/hooks/applypatch-msg.sample",
+        ".git/hooks/commit-msg.sample",
+        ".git/hooks/fsmonitor-watchman.sample",
+        ".git/hooks/post-update.sample",
+        ".git/hooks/pre-applypatch.sample",
+        ".git/hooks/pre-commit.sample",
+        ".git/hooks/pre-push.sample",
+        ".git/hooks/pre-rebase.sample",
+        ".git/hooks/pre-receive.sample",
+        ".git/hooks/prepare-commit-msg.sample",
+        ".git/hooks/update.sample",
+        ".git/index",
+        ".git/info/exclude",
+        ".git/info/sparse-checkout",
+        ".git/logs/HEAD",
+        ".git/objects/info/alternates",
+        ".git/packed-refs",
+        ".signature.p7s",
+        "README.md",
+        "build/NuGet.exe",
+        "build/build.bat",
+        "build/push.bat",
+        "content/chromedriver.exe",
+        "icon.png",
+        "tools/install.ps1",
+        "tools/uninstall.ps1",
+        "webdriver.chromedriver.win32.2.44.0.nupkg.sha512",
+        "webdriver.chromedriver.win32.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -11725,8 +11827,11 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
+      "Selenium.Support >= 3.141.0",
+      "Selenium.WebDriver >= 3.141.0",
       "System.Web.Providers >= 1.2.0",
-      "System.Web.Providers.Core >= 1.1.0"
+      "System.Web.Providers.Core >= 1.1.0",
+      "WebDriver.ChromeDriver.win32 >= 2.44.0"
     ]
   },
   "packageFolders": {
@@ -11740,13 +11845,13 @@
       "projectName": "projectChallenge",
       "projectPath": "/Users/kleibert/Projects/projectChallenge/projectChallenge.csproj",
       "packagesPath": "/Users/kleibert/.nuget/packages/",
-      "outputPath": "/Users/kleibert/Projects/projectChallenge/obj",
+      "outputPath": "/Users/kleibert/Projects/projectChallenge/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/kleibert/.config/NuGet/NuGet.Config"
+        "/Users/kleibert/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
@@ -11768,41 +11873,53 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "EntityFramework": {
+            "target": "Package",
+            "version": "[6.2.0, )"
+          },
+          "Microsoft.AspNet.Mvc": {
+            "target": "Package",
+            "version": "[5.2.6, )"
+          },
+          "Microsoft.AspNet.WebPages": {
+            "target": "Package",
+            "version": "[3.2.6, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.1"
+            "version": "[2.1.1, )",
+            "autoReferenced": true
           },
           "Microsoft.AspNetCore.Razor.Design": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.2"
+            "version": "[2.1.2, )"
           },
-          "Microsoft.AspNet.Mvc": {
+          "Microsoft.NETCore.App": {
             "target": "Package",
-            "version": "5.2.6"
+            "version": "[2.1.0, )",
+            "autoReferenced": true
           },
-          "Microsoft.AspNet.WebPages": {
+          "Selenium.Support": {
             "target": "Package",
-            "version": "3.2.6"
+            "version": "[3.141.0, )"
+          },
+          "Selenium.WebDriver": {
+            "target": "Package",
+            "version": "[3.141.0, )"
           },
           "System.Web.Providers": {
             "target": "Package",
-            "version": "1.2.0"
+            "version": "[1.2.0, )"
           },
           "System.Web.Providers.Core": {
             "target": "Package",
-            "version": "1.1.0"
+            "version": "[1.1.0, )"
           },
-          "EntityFramework": {
+          "WebDriver.ChromeDriver.win32": {
             "target": "Package",
-            "version": "6.2.0"
-          },
-          "Microsoft.NETCore.App": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "2.1",
-            "autoReferenced": true
+            "version": "[2.44.0, )"
           }
         },
         "imports": [

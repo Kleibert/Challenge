@@ -13,6 +13,9 @@ using System.Collections;
 using System.Net.Http;
 using System.Net;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 
 namespace projectChallenge.Controllers
 {
@@ -23,6 +26,7 @@ namespace projectChallenge.Controllers
         public ChallengeController(ContextChallenge _contextChallenge)
         {
             contextChallenge = _contextChallenge;
+
         }
 
         public IActionResult Index()
@@ -35,54 +39,64 @@ namespace projectChallenge.Controllers
         [HttpPost]
         public ActionResult Log(User userRegistration)
         {
+            string pattern = @"(^[1-3]{0,4}$)";
+     
+
             User user = new User();
           
             if (userRegistration != null) {
                 user.Username = userRegistration.Username;
                 user.Password = userRegistration.Password;
             }
-            User userDataBase = contextChallenge.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
-            if (userDataBase!=null)
+            if (Regex.IsMatch(user.Username, pattern) && Regex.IsMatch(user.Password, pattern))
             {
-                var token = contextChallenge.Tokens.Where(t => t.UserId == userDataBase.Userid);
-                foreach (Token to in token)
-                {
-                    contextChallenge.Tokens.Remove(to);
-                }
-                contextChallenge.SaveChanges();
 
-                List<Token> tokens = new List<Token>();
 
-                for (int i = 0; i < 50; i++)
+                User userDataBase = contextChallenge.Users.Where(u => u.Username == user.Username && u.Password == user.Password).FirstOrDefault();
+                if (userDataBase != null)
                 {
-                    Token nToken = new Token
+                    var token = contextChallenge.Tokens.Where(t => t.UserId == userDataBase.Userid);
+                    foreach (Token to in token)
                     {
-                        ValideDate = DateTime.Now,
-                        UserId = userDataBase.Userid
-                    };
-                    nToken.TokenCreate = nToken.CreateToken();
-                    tokens.Add(nToken);
+                        contextChallenge.Tokens.Remove(to);
+                    }
+                    contextChallenge.SaveChanges();
+
+                    List<Token> tokens = new List<Token>();
+
+                    for (int i = 0; i < 50; i++)
+                    {
+                        Token nToken = new Token
+                        {
+                            ValideDate = DateTime.Now,
+                            UserId = userDataBase.Userid
+                        };
+                        nToken.TokenCreate = nToken.CreateToken();
+                        tokens.Add(nToken);
+                    }
+                    string autoTokens = "";
+                    foreach (Token el in tokens)
+                    {
+                        contextChallenge.Tokens.Add(el);
+                        autoTokens += el.TokenCreate;
+                    }
+                    contextChallenge.SaveChanges();
+                    @ViewData["Tokens"] = tokens;
+
+                    //WebClient client = new WebClient();
+                    //client.Headers["Authorization"] = "Basic " + tokens;
+
+                    Response.Headers.Add("Authorization", string.Format(autoTokens) + ";");
+                    return View(user);
                 }
-                string autoTokens="";
-                foreach (Token el in tokens)
+
+                else
                 {
-                    contextChallenge.Tokens.Add(el);
-                    autoTokens += el.TokenCreate;
+
+                    return View("Singin", user);
                 }
-                contextChallenge.SaveChanges();
-                @ViewData["Tokens"] =tokens;
-
-               //WebClient client = new WebClient();
-                //client.Headers["Authorization"] = "Basic " + tokens;
-
-                Response.Headers.Add("Authorization", string.Format(autoTokens)+";");
-                return View(user);
-            }
-            else{
-
-                return View("Singin", user);
-            }
-
+            }else
+            return View("Singin", user);
         }
      
         /// Controller to Sing in the page
@@ -92,6 +106,8 @@ namespace projectChallenge.Controllers
         }
         //Create de view to put the infor for a new user
         public IActionResult Singup(User response){
+
+
             return View(response);
         }
 

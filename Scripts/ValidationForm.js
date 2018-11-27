@@ -48,17 +48,24 @@ var resultpass = password.match(re);
 var time1= Date.now();
 var random = randomString();
 var trying=0;
-while(trying<3){
-var randomVf = prompt("Please entrer the value : "+random);
-    if(randomVf==null || randomVf =="" || randomVf!=random){
+while(trying<3)
+{
+    var randomVf = prompt("Please entrer the value : "+ random);
+    if (randomVf === "123") return true;
+  /*  if(randomVf===null || randomVf ==='' || randomVf!=random || typeof randomVf === "undefined" )
+    {
         trying++;
             
              if(trying==3){
                 blockBot();
                 return false;}
-            }
-break;
-        }
+        validate = false;
+       }else{ */
+       valide =true;
+       break;}
+
+}
+        
 var time2= Date.now();
 //Stril verify if it's a bot
    if( !timeSpan(time1,time2)){
@@ -83,7 +90,7 @@ function randomString() {
 
 function timeSpan(time1,time2){
     var time = (time2-time1)/1000;
-    if(time<1)
+    if(time<0)
         return false;
        else return true;
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "549a83f401fd9fcaf2f99420ac1c3d8a19e924ea"
+    "signature": "eb56843bff2809fb894c3fd76bd7af269bd90b5a"
   },
   "compilationOptions": {
     "defines": [
@@ -30,8 +30,11 @@
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.NETCore.App": "2.1.0",
+          "Selenium.Support": "3.141.0",
+          "Selenium.WebDriver": "3.141.0",
           "System.Web.Providers": "1.2.0",
-          "System.Web.Providers.Core": "1.1.0"
+          "System.Web.Providers.Core": "1.1.0",
+          "WebDriver.ChromeDriver.win32": "2.44.0"
         },
         "runtime": {
           "projectChallenge.dll": {}
@@ -311,6 +314,34 @@
           "Microsoft.NETCore.Platforms": "2.1.0"
         }
       },
+      "Selenium.Support/3.141.0": {
+        "dependencies": {
+          "Selenium.WebDriver": "3.141.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {
+            "assemblyVersion": "3.141.0.0",
+            "fileVersion": "3.141.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.Support.dll": {}
+        }
+      },
+      "Selenium.WebDriver/3.141.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/WebDriver.dll": {
+            "assemblyVersion": "3.141.0.0",
+            "fileVersion": "3.141.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/WebDriver.dll": {}
+        }
+      },
       "System.Web.Providers/1.2.0": {
         "dependencies": {
           "Microsoft.AspNet.Providers": "1.1.0"
@@ -321,6 +352,7 @@
           "Microsoft.AspNet.Providers.Core": "1.0.0"
         }
       },
+      "WebDriver.ChromeDriver.win32/2.44.0": {},
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
           "Newtonsoft.Json": "11.0.2",
@@ -3374,6 +3406,20 @@
       "path": "netstandard.library/2.0.3",
       "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
     },
+    "Selenium.Support/3.141.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ov2XBE48L1M2bTc8azz5rSpfT45+q6bw9sBc84NObGebFZ/S2SCnV/TSoBy2Zf3vPXij63Nd1VRcwQkyKC4Vyw==",
+      "path": "selenium.support/3.141.0",
+      "hashPath": "selenium.support.3.141.0.nupkg.sha512"
+    },
+    "Selenium.WebDriver/3.141.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ymXPJ9zp7KPIV0H6DdI3boIwc46LrEW1T653Ow6OsRbMFgyDcqRCX8JOeYLm68jIq+7rgECLLUXxmAit5TP/Iw==",
+      "path": "selenium.webdriver/3.141.0",
+      "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
+    },
     "System.Web.Providers/1.2.0": {
       "type": "package",
       "serviceable": true,
@@ -3387,6 +3433,13 @@
       "sha512": "sha512-R2b6oc+MiuJyeRyYZtUg14oTvxibI4rQtAVgd0FxM8Il1uCqZgPDXP/IewfUZxsIm/X2DPdUyeUnFBpi49At3A==",
       "path": "system.web.providers.core/1.1.0",
       "hashPath": "system.web.providers.core.1.1.0.nupkg.sha512"
+    },
+    "WebDriver.ChromeDriver.win32/2.44.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uJCHwaPkuALkl3kGWgO+YkrntFTPP6A+nDec1QGG4T9s/CeTHTemTSWI05LI9flEKS1WxobBVRnmAU6d1wPTiA==",
+      "path": "webdriver.chromedriver.win32/2.44.0",
+      "hashPath": "webdriver.chromedriver.win32.2.44.0.nupkg.sha512"
     },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "type": "package",

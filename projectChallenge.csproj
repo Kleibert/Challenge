@@ -13,6 +13,7 @@
     <Folder Include="Models\" />
     <Folder Include="Authentication\" />
     <Folder Include="Scripts\" />
+    <Folder Include="Automation\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,13 +24,35 @@
     <PackageReference Include="System.Web.Providers" Version="1.2.0" />
     <PackageReference Include="System.Web.Providers.Core" Version="1.1.0" />
     <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
+    <PackageReference Include="WebDriver.ChromeDriver.win32" Version="2.44.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="projectChallenge.Testes\UnitTest1.cs" />
+    <Compile Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.Program.cs" />
+    <Compile Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Views\Values\Index.cshtml" />
     <Content Remove="Views\Challenge\Result.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+
+
+    <None Remove="projectChallenge.Testes\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll" />
+    <None Remove="projectChallenge.Testes\bin\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll" />
+    <None Remove="projectChallenge.Testes\obj\projectChallenge.Testes.csproj.nuget.g.props" />
+    <None Remove="projectChallenge.Testes\obj\projectChallenge.Testes.csproj.nuget.g.targets" />
+    <None Remove="projectChallenge.Testes\obj\projectChallenge.Testes.csproj.nuget.cache" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.assets.cache" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.csprojAssemblyReference.cache" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.csproj.CoreCompileInputs.cache" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.AssemblyInfoInputs.cache" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.dll" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.pdb" />
+    <None Remove="projectChallenge.Testes\obj\Debug\netcoreapp2.1\projectChallenge.Testes.csproj.FileListAbsolute.txt" />
   </ItemGroup>
 </Project>

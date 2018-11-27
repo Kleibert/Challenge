@@ -1,14 +1,23 @@
 ﻿<Properties StartupConfiguration="{D23F1B08-2164-443D-A614-A1FC1B0F4DD4}|Default">
   <MonoDevelop.Ide.ItemProperties.projectChallenge PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/ChallengeController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Scripts/ValidationForm.js">
     <Files>
-      <File FileName="Controllers/ChallengeController.cs" Line="158" Column="10" />
-      <File FileName="Views/Challenge/Singin.cshtml" Line="13" Column="1" />
-      <File FileName="Models/Agent.cs" Line="7" Column="32" />
-      <File FileName="Models/ContextChallenge.cs" Line="15" Column="48" />
-      <File FileName="Startup.cs" Line="74" Column="68" />
-      <File FileName="Authentication/CustomAuthHandler.cs" Line="97" Column="18" />
+      <File FileName="Controllers/ChallengeController.cs" Line="55" Column="1" />
+      <File FileName="Startup.cs" Line="20" Column="1" />
+      <File FileName="Authentication/CustomAuthHandler.cs" Line="13" Column="1" />
+      <File FileName="Views/Challenge/Index.cshtml" Line="11" Column="77" />
+      <File FileName="projectChallenge.csproj" Line="1" Column="1" />
+      <File FileName="projectChallenge.Testes/UnitTest1.cs" Line="27" Column="29" />
+      <File FileName="Views/Challenge/Singin.cshtml" Line="28" Column="51" />
+      <File FileName="Scripts/ValidationForm.js" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="projectChallenge" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="../../../Views/Challenge/Index.cshtml" line="31" offsetX="569" offsetY="450" expression="Model.Username" liveUpdate="False" />

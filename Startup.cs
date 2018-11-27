@@ -18,6 +18,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 
+
 namespace projectChallenge
 {
     public class Startup
@@ -28,7 +29,6 @@ namespace projectChallenge
         }
 
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         { 

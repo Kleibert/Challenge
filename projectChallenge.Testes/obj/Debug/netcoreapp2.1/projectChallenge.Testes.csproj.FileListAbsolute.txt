@@ -1,0 +1,14 @@
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/projectChallenge.Testes.deps.json
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/projectChallenge.Testes.runtimeconfig.json
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/projectChallenge.Testes.runtimeconfig.dev.json
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/projectChallenge.Testes.dll
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/bin/Debug/netcoreapp2.1/projectChallenge.Testes.pdb
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.csproj.CoreCompileInputs.cache
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.AssemblyInfoInputs.cache
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.AssemblyInfo.cs
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.dll
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.pdb
+/Users/kleibert/Projects/projectChallenge/projectChallenge.Testes/obj/Debug/netcoreapp2.1/projectChallenge.Testes.csprojAssemblyReference.cache
